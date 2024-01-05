@@ -1,7 +1,13 @@
+// app-routing.module.ts
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { FormulaComponent } from './formula/formula.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', redirectTo: '/formula', pathMatch: 'full' },
+  { path: 'formula', component: FormulaComponent },
+  // ... otras rutas
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
