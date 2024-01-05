@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,8 +14,9 @@ import { FormulaComponent } from './formula/formula.component';
     FormulaComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    BrowserModule, // Asegúrate de incluir BrowserModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
