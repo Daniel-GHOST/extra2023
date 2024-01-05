@@ -3,16 +3,28 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-formula',
   templateUrl: './formula.component.html',
-  styleUrls: ['./formula.component.css']
+  styleUrls: ['./formula.component.css'],
 })
 export class FormulaComponent {
-  masa: number;
-  velocidadLuz = 299792458; // m/s
-  energia: number;
+  masa: number = 0;
+  readonly velocidadLuz: number = 299792458; // en metros por segundo
+  energia: number = 0;
 
-  constructor() { }
+  constructor() {
+    this.masa = 0;
+    this.energia = 0;
+  }
+  
+    reset() {
+      this.masa = 0;
+      this.energia = 0;
+  }
 
-  calcularEnergia(): void {
+  onMasaChange(event: any) {
+    this.masa = Number(event.target.value);
+  }
+
+  calcularEnergia() {
     this.energia = this.masa * Math.pow(this.velocidadLuz, 2);
   }
 }

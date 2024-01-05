@@ -1,19 +1,16 @@
-<div>
-  <h2>Calculadora E = mc²</h2>
-  <form (ngSubmit)="calcularEnergia()">
-    <div>
-      <label for="masa">Masa (m):</label>
-      <input type="number" id="masa" [(ngModel)]="masa" name="masa" required>
-    </div>
-    <div>
-      <label for="velocidadLuz">Velocidad de la luz (c) [299792458 m/s]:</label>
-      <input type="number" id="velocidadLuz" [(ngModel)]="velocidadLuz" name="velocidadLuz" required>
-    </div>
-    <button type="submit">Calcular Energía (E)</button>
-  </form>
+<div class="container">
+  <h1>Calculadora de Energía E=mc²</h1>
+  <label for="masa">Masa (m en kilogramos):</label>
+  <input type="number" id="masa" [(ngModel)]="masa" (ngModelChange)="onMasaChange($event)">
 
-  <div *ngIf="energia">
-    <h3>Resultado:</h3>
-    <p>Energía (E) = {{ energia }} Joules</p>
+  <p>
+    Velocidad de la luz (c) fijada a 299,792,458 m/s.
+  </p>
+
+  <button (click)="calcularEnergia()">Calcular Energía (E)</button>
+
+  <div *ngIf="energia !== null">
+    <h2>Resultado:</h2>
+    <p>Energía (E) es {{ energia }} joules.</p>
   </div>
 </div>
